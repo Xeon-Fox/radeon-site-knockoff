@@ -7,22 +7,33 @@ body{
     color: white;
 }
 .navbar{
-    display: flex;
-    justify-content: flex-start;
     padding: 20px;
     background-color: black;
     width: 100vw;
-    height: 90px;
+    height: 80px;
 }
-.navbar p{
-    color: #fff;
-    margin-right: 15px;
-    justify-content: flex-start;
+.navbar-links{
+    display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    font-size: 24px;
+    width: 30vw;
 }
-.navbar link{
+.navbar-links img{
+    height: 50px;
+    align-self: flex-start;
     
+}
+.navbar-links a{
+    color: #fff;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-top: 7px;
+    text-decoration: none;
+}
+.navbar-register{
+    display: flex;
+    width: 5vw;
+    height: 60px;
 }
 .header{
     text-align: center;
@@ -41,9 +52,11 @@ body{
 }
 .cards{
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     padding: 50px;
 }
+
 .card{
     background-color: #fff;
     border-radius: 2px;
@@ -95,6 +108,7 @@ body{
 }
 .features{
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 .feature{
@@ -120,6 +134,9 @@ body{
     margin: auto;
     left: 850px;
 }
+.h{
+    text-decoration: none;
+}
 .random-gap{
     width: 100vw;
     height: 15px;
@@ -144,4 +161,24 @@ body{
     color: white;
     font-size: 12px;
     float: right;
+}
+@media screen and (min-width:320px) and (max-width:480px){
+    .cards{
+        flex-direction: column;
+    }
+    .navbar-links a{
+        margin-right: 10px;
+    }
+    .navbar-links{
+        width: 80vw;
+    }
+    .navbar-register{
+        width: 10vw;
+    }
+    .features{
+        flex-direction: column;
+    }
+    .RDNA{
+        height: 1250px;
+    }
 }
