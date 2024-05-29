@@ -4,6 +4,11 @@ body{
     background-color: white;
     color: white;
 }
+h1{
+    font-family: 'Roboto Slab', serif;
+    margin-top: 100px;
+    color: black;
+}
 .navbar{
     padding: 20px;
     background-color: black;
@@ -34,6 +39,11 @@ body{
     height: 60px;
 }
 
+.cart{
+    width: 80vw;
+    margin: auto;
+    height: 80vh;
+}
 
 .footer{
     width: 100vw;

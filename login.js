@@ -10,6 +10,7 @@ function login() {
   
     if (user && user.email === email && user.password === password) {
       alert('Logged In');
+      localStorage.setItem('isLoggedIn', true)
     } else {
       alert('Incorect name or password');
     }
