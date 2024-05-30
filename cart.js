@@ -12,110 +12,125 @@ isLoggedIn()
 const videoCardData = {
   rx5500: {
     name: 'Radeon RX 5500',
-    image: 'resources\3468-front.jpg',
+    image: 'resources/3468-front.jpg',
     price: 299
   },
   rx5600: {
-    // ... data for other video cards ...
+    name: 'Radeon RX 5600',
+    image: 'resources/1720013.jpg',
+    price: 399
   },
-  // ... data for all video cards ...
+  rx5700: {
+    name: 'Radeon RX 5700',
+    image: 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg',
+    price: 499
+  },
+  rx6500: {
+    name: 'Radeon RX 6500',
+    image: 'resources/dlcdnwebimgs.asus.png',
+    price: 599
+  },
+  rx6600: {
+    name: 'Radeon RX 6600',
+    image: 'resources/2064536_webp.jpg',
+    price: 699
+  },
+  rx6700: {
+    name: 'Radeon RX 6700',
+    image: 'resources/e513c8e147662d1b7c4af4305d035174365bebc6c2513650d9e11eb5e7eeb47c.jpg',
+    price: 799
+  },
+  rx7600: {
+    name: 'Radeon RX 7600',
+    image: 'resources/gpiwohjatiupwsrp9kssnaambw22srs7.jpg',
+    price: 899
+  },
+  rx7700: {
+    name: 'Radeon RX 7700',
+    image: 'resources/100025653_67761bed4b2c32e9bb25ef319b2a644d-500x500_webp.jpg',
+    price: 999
+  },
+  rx7800: {
+    name: 'Radeon RX 7800',
+    image: 'resources/177893_RX-7800-XT-Phantom-Gaming-16GB-OC_02_2_webp.jpg',
+    price: 1099
+  },
 };
 
-function updateCartList() {
-  const cartList = document.getElementById('cart-list').getElementsByTagName('tbody')[0];
-  cartList.innerHTML = ''; // Clear existing cart items
-
-  const cartItems = getCartItemsFromLocalStorage();
-
-  if (cartItems.length === 0) {
-    cartList.innerHTML = '<tr><td colspan="4">Your cart is empty.</td></tr>';
-    return;
+function getItems(){
+  let cardsList = {}
+  if(localStorage.getItem('rx5500') == 1){
+    cardsList.rx5500 = 1
   }
+  if(localStorage.getItem('rx5600') == 1){
+    cardsList.rx5600 = 1
+  }
+  if(localStorage.getItem('rx5700') == 1){
+    cardsList.rx5700 = 1
+  }
+  if(localStorage.getItem('rx6500') == 1){
+    cardsList.rx6500 = 1
+  }
+  if(localStorage.getItem('rx6600') == 1){
+    cardsList.rx6600 = 1
+  }
+  if(localStorage.getItem('rx6700') == 1){
+    cardsList.rx6700 = 1
+  }
+  if(localStorage.getItem('rx7600') == 1){
+    cardsList.rx7600 = 1
+  }
+  if(localStorage.getItem('rx7700') == 1){
+    cardsList.rx7700 = 1
+  }
+  if(localStorage.getItem('rx7800') == 1){
+    cardsList.rx7800 = 1
+  }
+  return cardsList
+}
 
+function DisplayItems(){
   let total = 0;
-  for (const [videoId, quantity] of Object.entries(cartItems)) {
-    const videoCard = videoCardData[videoId];
-    const row = cartList.insertRow();
+  let cartContent = '';
+  let cartData = getItems()
 
-    const cellName = row.insertCell();
-    cellName.textContent = videoCard.name;
+  for (const id in cartData) {
+    const quantity = cartData[id];
+    const itemData = videoCardData[id];
+    if (quantity > 0) {
+      total += itemData.price * quantity;
+      cartContent += `
+        <tr>
+          <td>${itemData.name}</td>
+          <td>${quantity}</td>
+          <td>$${itemData.price * quantity}</td>
+          <td><button onclick="removeFromCart('${id}')">Remove</button></td>
+        </tr>
+      `;
+    }
+  }
 
-    const cellImage = row.insertCell();
-    const imageElement = document.createElement('img');
-    imageElement.src = videoCard.image;
-    cellImage.appendChild(imageElement);
-
-    const cellQuantity = row.insertCell();
-    cellQuantity.innerHTML = `
-      <input type="number" min="1" value="${quantity}" data-video-id="${videoId}">
+  if (cartContent) {
+    cartContent = `
+      <h1>My Cart</h1>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+        ${cartContent}
+        <tr>
+          <td colspan="2"><b>Total:</b></td>
+          <td>$${total}</td>
+        </tr>
+      </table>
     `;
-
-    const cellRemove = row.insertCell();
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () => removeFromCart(videoId));
-    cellRemove.appendChild(removeButton);
-
-    total += videoCard.price * quantity;
-  }
-
-  const totalRow = cartList.insertRow();
-  const totalCell = totalRow.insertCell().colSpan = 4;
-  totalCell.innerHTML = `<b>Total: $${total.toFixed(2)}</b>`;
-}
-
-function getCartItemsFromLocalStorage() {
-  try {
-    const cartItemsString = localStorage.getItem('cart');
-    return cartItemsString ? JSON.parse(cartItemsString) : {};
-  } catch (error) {
-    console.error('Error retrieving cart from localStorage:', error);
-    return {};
+    document.getElementById('cart-container').innerHTML = cartContent;
+  } 
+  else {
+    alert('Your cart is empty.');
   }
 }
 
-
-function addToCart(videoId) {
-  const cartItems = getCartItemsFromLocalStorage();
-  cartItems[videoId] = cartItems[videoId] || 0;
-  cartItems[videoId]++;
-
-  localStorage.setItem('cart', JSON.stringify(cartItems));
-  updateCartList();
-}
-
-function removeFromCart(videoId) {
-  const cartItems = getCartItemsFromLocalStorage();
-  delete cartItems[videoId];
-
-  localStorage.setItem('cart', JSON.stringify(cartItems));
-  updateCartList();
-}
-
-function handleQuantityChange(event) {
-  const videoId = event.target.dataset.videoId;
-  const quantity = parseInt(event.target.value);
-
-  if (quantity < 1) {
-    removeFromCart(videoId);
-    return;
-  }
-
-  const cartItems = getCartItemsFromLocalStorage();
-  cartItems[videoId] = quantity;
-
-  localStorage.setItem('cart', JSON.stringify(cartItems));
-  updateCartList();
-}
-
-const buttons = document.querySelectorAll('#rx5500, #rx5600, #rx5700, #rx6500, #rx6600, #rx6700, #rx7600, #rx7700, #rx7800');
-for (const button of buttons) {
-  button.addEventListener('click', () => addToCart(button.id));
-}
-
-const quantityInputs = document.querySelectorAll('input[type="number"]');
-for (const input of quantityInputs) {
-  input.addEventListener('change', handleQuantityChange);
-}
-
-updateCartList();
