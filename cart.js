@@ -89,6 +89,11 @@ function getItems(){
   return cardsList
 }
 
+function deleteItem(cardId) {
+  localStorage.removeItem(cardId);
+  DisplayItems();
+}
+
 function DisplayItems(){
   let total = 0;
   let cartContent = '';
@@ -100,12 +105,12 @@ function DisplayItems(){
     if (quantity > 0) {
       total += itemData.price * quantity;
       cartContent += `
-        <tr>
+        <tr class="product-line">
           <td><img src="${itemData.image}" alt=""></td>
-          <td>${itemData.name}</td>
-          <td>${quantity}</td>
-          <td>$${itemData.price * quantity}</td>
-          <td><button onclick="removeFromCart('${id}')">Remove</button></td>
+          <td><p>${itemData.name}</p></td>
+          <td><p>${quantity}</p></td>
+          <td><p>$${itemData.price * quantity}</p></td>
+          <td><button onclick="deleteItem('${id}')">Remove</button></td>
         </tr>
       `;
     }
@@ -128,6 +133,7 @@ function DisplayItems(){
           <td>$${total}</td>
         </tr>
       </table>
+      <button onclick="BuyButton()" class="btn">Buy</button>
     `;
     document.getElementById('cart-container').innerHTML = cartContent;
   } 
@@ -136,16 +142,10 @@ function DisplayItems(){
   }
 }
 
-function deleteItem(itemId) {
-  let items = JSON.parse(localStorage.getItem('cartItems'));
-  items = items.filter(item => item.id !== itemId);
-  localStorage.setItem('cartItems', JSON.stringify(items));
-
-  const element = document.getElementById(itemId);
-  if (element) {
-    element.remove();
-  }
+function BuyButton(){
+  alert("Thank you for shopping with us")
+  localStorage.clear();
+  DisplayItems()
 }
-
 
 DisplayItems()
