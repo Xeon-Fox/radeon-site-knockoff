@@ -73,7 +73,7 @@ function getItems(){
   }
   if(localStorage.getItem('rx6600') == 1){
     cardsList.rx6600 = 1
-  }
+  } 
   if(localStorage.getItem('rx6700') == 1){
     cardsList.rx6700 = 1
   }
@@ -101,6 +101,7 @@ function DisplayItems(){
       total += itemData.price * quantity;
       cartContent += `
         <tr>
+          <td><img src="${itemData.image}" alt=""></td>
           <td>${itemData.name}</td>
           <td>${quantity}</td>
           <td>$${itemData.price * quantity}</td>
@@ -113,8 +114,9 @@ function DisplayItems(){
   if (cartContent) {
     cartContent = `
       <h1>My Cart</h1>
-      <table>
+      <table class="cart-table">
         <tr>
+          <th>Image</th>
           <th>Product</th>
           <th>Quantity</th>
           <th>Price</th>
@@ -134,3 +136,16 @@ function DisplayItems(){
   }
 }
 
+function deleteItem(itemId) {
+  let items = JSON.parse(localStorage.getItem('cartItems'));
+  items = items.filter(item => item.id !== itemId);
+  localStorage.setItem('cartItems', JSON.stringify(items));
+
+  const element = document.getElementById(itemId);
+  if (element) {
+    element.remove();
+  }
+}
+
+
+DisplayItems()
