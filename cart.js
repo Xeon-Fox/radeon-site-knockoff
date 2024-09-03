@@ -112,7 +112,7 @@ function DisplayItems(){
           <td><p>$${itemData.price * quantity}</p></td>
           <td><button onclick="deleteItem('${id}')">Remove</button></td>
         </tr>
-      `;
+      `
     }
   }
 
@@ -134,7 +134,7 @@ function DisplayItems(){
         </tr>
       </table>
       <button onclick="BuyButton()" class="btn">Buy</button>
-    `;
+    `
     document.getElementById('cart-container').innerHTML = cartContent;
   } 
   else {
