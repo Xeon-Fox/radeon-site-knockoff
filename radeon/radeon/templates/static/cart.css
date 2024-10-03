@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: 'Roboto Slab', serif;
+    margin-top: 100px;
+    color: black;
+}
+.navbar{
+    padding: 20px;
+    background-color: black;
+    width: 100vw;
+    height: 80px;
+}
+.navbar-links{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 30vw;
+}
+.navbar-links img{
+    height: 50px;
+    align-self: flex-start;
+    
+}
+.navbar-links a{
+    color: #fff;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-top: 7px;
+    text-decoration: none;
+}
+.navbar-register{
+    display: flex;
+    width: 5vw;
+    height: 60px;
+}
+
+#cart-container{
+    width: 80vw;
+    margin: auto;
+    height: 80vh;
+    color: black;
+}
+
+#cart-container img{
+    height: 75px;
+}
+
+.cart-table{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-line{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer{
+    width: 100vw;
+    height: 100px;
+    background-color: black;
+}
+.footer-media{
+    display: flex;
+    justify-content: space-around;
+    width: 90vw;
+    margin: auto;
+}
+.footer-media img{
+    width: 50px;
+    height: 50px;
+}
+.footer-media p{
+    color: white;
+    font-size: 12px;
+    float: right;
+}
+
+@media screen and (min-width:320px) and (max-width:480px){
+    .cardsbg{
+        position: absolute;
+        width: 2000px;
+        height: 1096px;
+        top: 80px;
+        margin: 0;
+    }
+    .cards{
+        flex-direction: column;
+    }
+    .navbar-links a{
+        margin-right: 10px;
+    }
+    .navbar-links{
+        width: 80vw;
+    }
+    .navbar-register{
+        width: 10vw;
+    }
+    .features{
+        flex-direction: column;
+    }
+    .RDNA{
+        height: 1250px;
+    }
+}
