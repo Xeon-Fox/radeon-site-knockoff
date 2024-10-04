@@ -30,3 +30,6 @@ coverage/
 # MyPy
 .mypy_cache/
 .dmypy.json
+
+**/__pycache__
+__pycache__
