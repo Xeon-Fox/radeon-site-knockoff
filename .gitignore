@@ -85,7 +85,6 @@ target/
 __pycache__/
 local_settings.py
 
-<<<<<<< HEAD
 # IDE-specific files
 .idea/
 .vscode/
@@ -103,10 +102,8 @@ coverage/
 
 **/__pycache__
 __pycache__
-=======
 .env
 db.sqlite3
 venv/
 .env/
 .venv/
->>>>>>> ayan
