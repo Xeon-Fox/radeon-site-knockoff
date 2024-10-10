@@ -31,16 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "config",
     'jazzmin',
+    "users",
+    "gpu",
+    "cart",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "users",
-    "gpu",
-    "cart",
+
 ]
 
 MIDDLEWARE = [
@@ -108,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "ru"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "Asia/Almaty"
 
 USE_I18N = True
 
@@ -120,9 +122,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "resorces/static/"
+STATICFILES_DIRS = [BASE_DIR / "resorces/static"]
+STATIC_ROOT = BASE_DIR / "resources/staticfiles"
+
+MEDIA_URL = "resources/media/"
+MEDIA_ROOT = BASE_DIR / "resources/media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'users:profile'
+LOGOUT_REDIRECT_URL = 'users:login'
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1048576000  # 1000 MB (1 GB)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1048576000  # 1000 MB (1 GB)
