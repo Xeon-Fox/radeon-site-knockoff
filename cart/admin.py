@@ -8,5 +8,5 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ('order', 'gpu_record', 'quantity')
+    list_display = ('order', 'gpu', 'quantity')
     search_fields = ('gpu__title',)

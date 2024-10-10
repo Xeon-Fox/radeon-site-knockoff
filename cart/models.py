@@ -35,7 +35,7 @@ class OrderItem(models.Model):
         verbose_name=_("Заказ"),
         help_text=_("Заказ, к которому относится этот элемент.")
     )
-    vinyl_record = models.ForeignKey(
+    gpu = models.ForeignKey(
         Gpu,
         on_delete=models.CASCADE,
         verbose_name=_("Видеокарта"),
@@ -52,4 +52,4 @@ class OrderItem(models.Model):
         verbose_name_plural = _("Элементы заказа")
 
     def __str__(self):
-        return f"{self.vinyl_record.title} (x{self.quantity})"
+        return f"{self.gpu.title} (x{self.quantity})"
