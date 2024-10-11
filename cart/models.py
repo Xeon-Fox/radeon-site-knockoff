@@ -9,7 +9,7 @@ class Order(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="orders",
+        related_name="cart",
         verbose_name=_("Пользователь"),
         help_text=_("Пользователь, оформивший заказ.")
     )

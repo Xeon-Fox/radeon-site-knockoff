@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True, help_text='Дата и время создания заказа.', verbose_name='Дата создания')),
-                ('user', models.ForeignKey(help_text='Пользователь, оформивший заказ.', on_delete=django.db.models.deletion.CASCADE, related_name='orders', to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                ('user', models.ForeignKey(help_text='Пользователь, оформивший заказ.', on_delete=django.db.models.deletion.CASCADE, related_name='cart', to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
             ],
             options={
                 'verbose_name': 'Заказ',
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.PositiveIntegerField(default=1, help_text='Количество заказанных пластинок.', verbose_name='Количество')),
                 ('order', models.ForeignKey(help_text='Заказ, к которому относится этот элемент.', on_delete=django.db.models.deletion.CASCADE, related_name='items', to='cart.order', verbose_name='Заказ')),
-                ('vinyl_record', models.ForeignKey(help_text='Видеокарта, которую пользователь заказал.', on_delete=django.db.models.deletion.CASCADE, to='gpu.gpu', verbose_name='Видеокарта')),
+                ('gpu', models.ForeignKey(help_text='Видеокарта, которую пользователь заказал.', on_delete=django.db.models.deletion.CASCADE, to='gpu.gpu', verbose_name='Видеокарта')),
             ],
             options={
                 'verbose_name': 'Элемент заказа',

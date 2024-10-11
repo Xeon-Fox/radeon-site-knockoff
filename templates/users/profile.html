@@ -8,7 +8,7 @@
 
 <h3>Ваши заказы:</h3>
 <ul>
-    {% for order in orders %}
+    {% for order in cart %}
         <li>Заказ №{{ order.id }} от {{ order.created_at }}</li>
     {% empty %}
         <li>У вас нет заказов.</li>

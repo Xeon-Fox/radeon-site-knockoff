@@ -5,16 +5,15 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse_lazy
 
 from .forms import UserLoginForm, UserRegistrationForm
-# from orders.models import Order
+from cart.models import Order
 
-# откоментировать после рабочего вида cart
 class UserProfileView(LoginRequiredMixin, TemplateView):
     template_name = "register/profile.html"
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["orders"] = Order.objects.filter(user=self.request.user)
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cart"] = Order.objects.filter(user=self.request.user)
+        return context
 
 
 class RegisterView(FormView):
