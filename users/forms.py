@@ -3,7 +3,6 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
-
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label=_("Пароль"), widget=forms.PasswordInput)
     password_confirm = forms.CharField(
@@ -27,5 +26,5 @@ class UserRegistrationForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label=_("Имя пользователя"))
-    password = forms.CharField(label=_("Пароль"), widget=forms.PasswordInput)
+    username = forms.CharField(label=_("Имя пользователя"), widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label=_("Пароль"), widget=forms.PasswordInput(attrs={'class': 'form-control'}))
