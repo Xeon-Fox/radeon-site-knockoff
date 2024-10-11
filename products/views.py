@@ -11,6 +11,8 @@ from django.db.models import Q
 class HomePageView(ListView):
     model = Gpu
     template_name = "main.html"
+
+
 #     context_object_name = "gpu"
 #     paginate_by = 10 
 
