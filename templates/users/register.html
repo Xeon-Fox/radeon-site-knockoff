@@ -1,26 +1,59 @@
+
+
+<!-- users/templates/users/register.html -->
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}AMD Radeon™ RX Graphics Series{% endblock %}
+{% block title %}Создание аккаунта AMD Radeon™ RX{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'register.css' %}">
 
-<form class="registration" id="registration">
-    <h1>AMD Account Creation</h1>
-    <p>Email:</p>
-    <input id="email" type="email" class="form-control" placeholder="name@example.com">
+<h1>Создание аккаунта AMD</h1>
 
-    <p>Name:</p>
-    <input id="name" type="text" class="form-control" placeholder="Jane Doe">
+<form method="post" class="registration" id="registration">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
 
-    <p>Password:</p>
-    <input type="password" class="form-control" placeholder="*********">
+    <div class="form-control"  id="name">
+        <p>
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </p>
 
-    <p>Confirm password:</p>
-    <input id="password" type="password" class="form-control" placeholder="*********">
+    </div>
 
-    <button type="submit" class="btn">Submit</button>
+    <div class="form-control" id="email">
+        <p>        
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </p>
+
+    </div>
+
+    <div class="form-control" type="password">
+        <p>
+            <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+            {{ form.password }}
+            {{ form.password.errors }}
+        </p>
+
+    </div>
+
+    <div class="form-control" id="password">
+        <p>
+            <label for="{{ form.password_confirm.id_for_label }}">{{ form.password_confirm.label }}</label>
+            {{ form.password_confirm }}
+            {{ form.password_confirm.errors }}
+
+        </p>
+
+    </div>
+
+
+    <button type="submit" class="btn">Зарегистрироваться</button>
+
 </form>
-
 {% endblock %}
