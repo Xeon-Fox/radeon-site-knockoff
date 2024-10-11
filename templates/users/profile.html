@@ -1,6 +1,6 @@
-{% extends "base/base.html" %}
+{% extends "base.html" %}
 
-{% block title %}{% block title %}{% trans "Профиль" %}{% endblock %}{% endblock %}
+
 
 {% block content %}
 <h2>Профиль пользователя</h2>
@@ -18,5 +18,5 @@
 <p><a href="{% url 'users:password_change' %}">Сменить пароль</a></p>
 <p><a href="{% url 'users:logout' %}">Выйти</a></p>
 
-{% include 'base/form_errors.html' %}
+
 {% endblock %}
