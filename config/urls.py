@@ -20,6 +20,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 # urlpatterns = [
 #     path('register/', register, name='register'),
 # ]
@@ -29,4 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls'), name='users'),
     path("", include("products.urls"), name="products"),
+    
+    
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
