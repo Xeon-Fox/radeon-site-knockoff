@@ -3,7 +3,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from gpu.models import Gpu
-# from orders.models import Order
+# from cart.models import Order
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 
@@ -15,14 +15,14 @@ class HomePageView(ListView):
 #     paginate_by = 10 
 
 #     def get_queryset(self):
-        # Получаем все виниловые пластинки, сортируем по названию
+        # Получаем все видеокарты, сортируем по названию
         # return Gpu.objects.all().order_by("title")
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
         # Если пользователь авторизован, добавляем заказы
         # if self.request.user.is_authenticated:
-        #     context["orders"] = Order.objects.filter(user=self.request.user)
+        #     context["cart"] = Order.objects.filter(user=self.request.user)
         # return context
 
 # class SearchResultsView(ListView):
