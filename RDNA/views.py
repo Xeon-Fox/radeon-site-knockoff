@@ -4,5 +4,5 @@ from gpu.models import Gpu
 
 class HomePageView(ListView):
     model = Gpu
-    template_name = "main.html"
+    template_name = "RDNA.html"
 
