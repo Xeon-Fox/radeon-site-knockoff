@@ -15,11 +15,13 @@ class UserProfileView(LoginRequiredMixin, TemplateView):
         context["cart"] = Order.objects.filter(user=self.request.user)
         return context
 
+class UserProfileView(LoginRequiredMixin, TemplateView):
+    template_name = "users/profile.html"  # Убедитесь, что путь к шаблону правильный
 
 class RegisterView(FormView):
     template_name = "users/register.html"
     form_class = UserRegistrationForm
-    success_url = reverse_lazy("user_profile")
+    success_url = reverse_lazy("users:user_profile")
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -28,7 +30,6 @@ class RegisterView(FormView):
         login(self.request, user)
         return super().form_valid(form)
 
-
 class UserLoginView(LoginView):
     template_name = "users/login.html"
     authentication_form = UserLoginForm
@@ -36,13 +37,11 @@ class UserLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy("users:user_profile")
 
-
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('users:login')
     template_name = 'users/logged_out.html'
-    http_method_names = ['get', 'post']
-
 
 class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/password_change.html"
-    success_url = reverse_lazy("user_profile")
+    success_url = reverse_lazy("users:user_profile")
+
