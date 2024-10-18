@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Детали заказа #{{ order.id }}</h2>
+<p>Создано: {{ order.created_at }}</p>
+<h3>Элементы заказа:</h3>
+<ul>
+    {% for item in order.items.all %}
+        <li>{{ item.gpu.title }} (x{{ item.quantity }})</li>
+    {% empty %}
+        <li>Нет элементов в заказе.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'cart:order_list' %}">Назад к списку заказов</a>
+{% endblock %}

@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'static/products.css' %}">
+{% endblock %}
+
 {% block title %}AMD Radeon™ RX Graphics Series{% endblock %}
 
 {% block content %}
@@ -9,21 +15,21 @@
     <div class="card">
         <h2>RX 5000 SERIES</h2>
         <a href="#">
-            <!-- <img src="{% static 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg' %}" alt=""> -->
+            <img src="{% static 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>
     <div class="card">
         <h2>RX 6000 SERIES</h2>
         <a href="#">
-            <!-- <img src="{% static 'resources/6800XT.jpg' %}" alt=""> -->
+            <img src="{% static 'resources/6800XT.jpg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>
     <div class="card">
         <h2>RX 7000 SERIES</h2>
         <a href="#">
-            <!-- <img src="{% static 'resources/AMD-RADEON-RX-7900XTX-19.jpeg' %}" alt=""> -->
+            <img src="{% static 'resources/AMD-RADEON-RX-7900XTX-19.jpeg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>

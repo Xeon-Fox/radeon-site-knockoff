@@ -1,5 +1,6 @@
 from django import forms
 from .models import Order, OrderItem
+from django.utils.translation import gettext_lazy as _  
 
 class OrderForm(forms.ModelForm):
     class Meta:
