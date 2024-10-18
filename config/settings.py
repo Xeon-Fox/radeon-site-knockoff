@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "store",
     "orders",
     "RDNA",
+    "series",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
