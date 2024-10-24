@@ -7,6 +7,8 @@ from .views import (
     UserPasswordChangeView,
 )
 
+from django.urls import path
+from .views import HomeView, ProductsView, RDNAView, CartView
 app_name = "users"
 
 urlpatterns = [
@@ -15,4 +17,8 @@ urlpatterns = [
     path("login/", UserLoginView.as_view(), name="login"),
     path("logout/", UserLogoutView.as_view(), name="logout"),
     path("password-change/", UserPasswordChangeView.as_view(), name="password_change"),
+    path('', HomeView.as_view(), name='home'),
+    path('series/', ProductsView.as_view(), name='products'),
+    path('rdna/', RDNAView.as_view(), name='rdna'),
+    path('cart/', CartView.as_view(), name='cart'),
 ]
