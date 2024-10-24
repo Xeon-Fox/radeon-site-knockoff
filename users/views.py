@@ -3,17 +3,22 @@ from django.views.generic import TemplateView, FormView
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.views.generic import TemplateView
+
+
 
 from .forms import UserLoginForm, UserRegistrationForm
-from cart.models import Order
+# from orders.models import Order
 
+# откоментировать после рабочего вида cart
 class UserProfileView(LoginRequiredMixin, TemplateView):
     template_name = "register/profile.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["cart"] = Order.objects.filter(user=self.request.user)
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["orders"] = Order.objects.filter(user=self.request.user)
+#         return context
 
 class UserProfileView(LoginRequiredMixin, TemplateView):
     template_name = "users/profile.html"  # Убедитесь, что путь к шаблону правильный
@@ -44,4 +49,25 @@ class UserLogoutView(LogoutView):
 class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/password_change.html"
     success_url = reverse_lazy("users:user_profile")
+
+
+
+# Главная страница
+class HomeView(TemplateView):
+    template_name = 'home.html'
+
+# Страница с продуктами
+class ProductsView(TemplateView):
+    template_name = 'products.html'
+
+# Страница RDNA
+class RDNAView(TemplateView):
+    template_name = 'rdna.html'
+
+# Страница корзины
+class CartView(TemplateView):
+    template_name = 'cart.html'
+
+
+
 
