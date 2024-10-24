@@ -6,9 +6,11 @@
 
 {% block title %}Создание аккаунта AMD Radeon™ RX{% endblock %}
 
-{% block content %}
-<link rel="stylesheet" href="{% static 'register.css' %}">
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'register.css' %}">  <!-- CSS для страницы регистрации -->
+{% endblock %}
 
+{% block content %}
 <h1>Создание аккаунта AMD</h1>
 
 <form method="post" class="registration" id="registration">
@@ -17,7 +19,7 @@
 
     <div class="form-control"  id="name">
         <p>
-            <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label> <br>
             {{ form.username }}
             {{ form.username.errors }}
         </p>
@@ -26,7 +28,7 @@
 
     <div class="form-control" id="email">
         <p>        
-            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label> <br>
             {{ form.email }}
             {{ form.email.errors }}
         </p>
@@ -35,7 +37,7 @@
 
     <div class="form-control" type="password">
         <p>
-            <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+            <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label> <br>
             {{ form.password }}
             {{ form.password.errors }}
         </p>
@@ -44,7 +46,7 @@
 
     <div class="form-control" id="password">
         <p>
-            <label for="{{ form.password_confirm.id_for_label }}">{{ form.password_confirm.label }}</label>
+            <label for="{{ form.password_confirm.id_for_label }}">{{ form.password_confirm.label }}</label> <br>
             {{ form.password_confirm }}
             {{ form.password_confirm.errors }}
 

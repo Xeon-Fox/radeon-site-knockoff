@@ -1,10 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+
 h1{
     font-family: 'Roboto Slab', serif;
     margin-top: 100px;
+    color: black !important;
+    margin-left: 50vh;
+}
+text{
+    color: black;
+}
+
+.form-group {
+    margin-top: 10vh;
+    margin-left: 50vh;
+    width: 100vh;
+}
+input[type="text"] {
+    width: 100vh;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    width: 200px;
+    height: 60px;
+    border: 1px solid lightgray;
+    margin-top: 50px;
+    margin-left: 50vh;
+    border-radius: 5px;
+}
+
+.btn-primary:hover{
+    border: 1px solid gray;
 }
 .navbar{
-    padding: 20px;
+    padding: 10px;
     background-color: black;
     width: 100vw;
     height: 80px;
@@ -52,6 +81,7 @@ h1{
     width: 100vw;
     height: 100px;
     background-color: black;
+    margin-top: 22vh;
 }
 .footer-media{
     display: flex;
@@ -67,4 +97,8 @@ h1{
     color: white;
     font-size: 12px;
     float: right;
+}
+
+#name{
+    color: black;
 }
