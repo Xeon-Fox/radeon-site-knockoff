@@ -27,8 +27,8 @@
                 <img src="{% static 'resources/Безымянный.png' %}" alt="">
             </a>
             <ul id="registerwindow" class="dropdown-menu">
-                <li><a class="dropdown-item" href="users/login">Log In</a></li>
-                <li><a class="dropdown-item" href="users/register">Sign In</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:login' %}">Log In</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:register' %}">Sign In</a></li>
             </ul>
         </div>
     </div>
