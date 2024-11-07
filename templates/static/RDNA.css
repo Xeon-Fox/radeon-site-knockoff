@@ -34,6 +34,7 @@
     width: 100vw;
     height: 160px;
     padding: 50px;
+    color: white;
 }
 .header p{
     font-size: 36px;
@@ -51,7 +52,7 @@
 .paragraph{
     font-family: 'Roboto Slab', serif;
     position: absolute;
-    color: white;
+    color: black;
     width: 600px;
     height: 300px;
     bottom: 70px;
