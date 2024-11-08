@@ -49,13 +49,19 @@
             <label for="{{ form.password_confirm.id_for_label }}">{{ form.password_confirm.label }}</label> <br>
             {{ form.password_confirm }}
             {{ form.password_confirm.errors }}
-
         </p>
 
     </div>
 
+    <div class="form-control" id="password">
+        <p>
+            {{ form.captcha }}
+        </p>
+
+    </div>
 
     <button type="submit" class="btn">Зарегистрироваться</button>
+    
 
 </form>
 {% endblock %}
