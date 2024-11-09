@@ -8,7 +8,7 @@ from .views import (
 )
 
 from django.urls import path
-from .views import HomeView, ProductsView, RDNAView, CartView
+from .views import HomeView, ProductsView, RDNAView
 app_name = "users"
 
 urlpatterns = [
@@ -20,5 +20,4 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('series/', ProductsView.as_view(), name='products'),
     path('rdna/', RDNAView.as_view(), name='rdna'),
-    path('cart/', CartView.as_view(), name='cart'),
 ]
