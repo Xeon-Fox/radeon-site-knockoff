@@ -2,41 +2,160 @@
 
 {% load static %}
 
-{% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'static/products.css' %}">
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products.css' %}">
 {% endblock %}
+
+{% load static %}
 
 {% block title %}AMD Radeon™ RX Graphics Series{% endblock %}
 
 {% block content %}
 
 <div class="cards" id="cards">
-    <!-- <img src="{% static 'resources/2.png' %}" alt="" class="cardsbg"> -->
+    <img src="{% static 'resources/2.png' %}" alt="" class="cardsbg">
     <div class="card">
-        <h2>RX 5000 SERIES</h2>
-        <a href="#">
-            <img src="{% static 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg' %}" alt="">
+        <h2>RX 7000 SERIES</h2>
+        <a href="#rx7600">
+            <img src="{% static 'resources/AMD-RADEON-RX-7900XTX-19.jpeg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>
+
     <div class="card">
         <h2>RX 6000 SERIES</h2>
-        <a href="#">
+        <a href="#rx6500">
             <img src="{% static 'resources/6800XT.jpg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>
+
     <div class="card">
-        <h2>RX 7000 SERIES</h2>
-        <a href="#">
-            <img src="{% static 'resources/AMD-RADEON-RX-7900XTX-19.jpeg' %}" alt="">
+        <h2>RX 5000 SERIES</h2>
+        <a href="#rx5500">
+            <img src="{% static 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg' %}" alt="">
         </a>
         <p>LEARN MORE</p>
     </div>
 </div>
 
-<div class="product-cards">
-    
+<div class="text">
+    <p>Radeon™ RX Series</p>
 </div>
+
+
+<div class="product-cards">
+        
+    <div class="product-card">
+        <p class="product-name">RX 7600</p>
+        <img class="product-card-img" src="{% static 'resources/gpiwohjatiupwsrp9kssnaambw22srs7.jpg' %}" alt="">
+        <p class="etc">Released: May 2023
+            RDNA 3 architecture 
+            2048 Stream Processors 
+            8GB GDDR6 memory
+            128-bit memory bus</p>
+            <input id="rx7600" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 7700</p>
+        <img class="product-card-img" src="{% static 'resources/100025653_67761bed4b2c32e9bb25ef319b2a644d-500x500_webp.jpg' %}" alt="">
+        <p class="etc">Released: March 2023
+            RDNA 3 architecture
+            60 CUs at 2100 MHz
+            12GB GDDR6 memory
+            Up to 1.3x faster than the Radeon RX 6700 XT</p>
+            <input id="rx7700" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 7800</p>
+        <img class="product-card-img" src="{% static 'resources/177893_RX-7800-XT-Phantom-Gaming-16GB-OC_02_2_webp.jpg' %}" alt="">
+        <p class="etc">Released: January 2023
+            RDNA 3 architecture
+            72 CUs at 2200 MHz
+            16GB GDDR6 memory
+            Up to 1.5x faster than the Radeon RX 6800 XT</p>
+            <input id="rx7800" class="btn" type="button" value="Buy">
+    </div>
+    <img class="product-bg" src="{% static 'resources/red-space-1578-x-843-background-i8alnmozprfs5a8q.png' %}" alt="">
+</div>
+
+<div class="product-cards">
+        
+    <div class="product-card">
+        <p class="product-name">RX 6500</p>
+        <img class="product-card-img" src="{% static 'resources/dlcdnwebimgs.asus.png' %}" alt="">
+        <p class="etc">Released: January 2022
+            RDNA 2 architecture
+            1024 Stream Processors at up to 2815 MHz
+            4GB GDDR6 memory with a limited 64-bit bus 
+            Targeted for 1080p gaming at moderate to high setting</p>
+            <input id="rx6500" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 6600</p>
+        <img class="product-card-img" src="{% static 'resources/2064536_webp.jpg' %}" alt="">
+        <p class="etc">Released: July 2021
+            RDNA 2 architecture
+            32 CUs at 2375 MHz
+            8GB GDDR6 memory
+            Up to 1.3x faster than the Radeon RX 5700 XT</p>
+            <input id="rx6600" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 6700</p>
+        <img class="product-card-img" src="{% static 'resources/e513c8e147662d1b7c4af4305d035174365bebc6c2513650d9e11eb5e7eeb47c.jpg' %}" alt="">
+        <p class="etc">Released: March 2021
+            RDNA 2 architecture
+            40 CUs at 2250 MHz
+            12GB GDDR6 memory
+            Up to 1.6x faster than the Radeon RX 5700 XT</p>
+            <input id="rx6700" class="btn" type="button" value="Buy">
+    </div>
+    <img class="product-bg" src="{% static 'resources/red-space-1578-x-843-background-i8alnmozprfs5a8q.png' %}" alt="">
+
+</div>
+
+<div class="product-cards">
+    <div class="product-card">
+        <p class="product-name">RX 5500</p>
+        <img class="product-card-img" src="{% static 'resources/3468-front.jpg' %}" alt="">
+        <p class="etc">Released: January 2020
+            7nm architecture
+            22 CUs at 1405 MHz
+            4GB GDDR5 memory
+            Up to 25% faster than the Radeon RX 5400</p>
+        <input id="rx5500" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 5600</p>
+        <img class="product-card-img" src="{% static 'resources/1720013.jpg' %}" alt="">
+        <p class="etc" >Released: January 2020
+            7nm architecture
+            36 CUs at 1605 MHz
+            6GB GDDR6 memory
+            Up to 40% faster than the Radeon RX 5500 XT</p>
+            <input id="rx5600" class="btn" type="button" value="Buy">
+    </div>
+    
+    <div class="product-card">
+        <p class="product-name">RX 5700</p>
+        <img class="product-card-img" src="{% static 'resources/placa-video-asus-radeon-rx-5700-radeonrx57008gb-dag27C-L.jpg' %}" alt="">
+        <p class="etc">Released: November 2019
+            7nm architecture
+            40 CUs at 1750 MHz
+            8GB GDDR6 memory
+            Up to 50% faster than the Radeon RX 580</p>
+            <input id="rx5700" class="btn" type="button" value="Buy">
+    </div>
+    <img class="product-bg" src="{% static 'resources/red-space-1578-x-843-background-i8alnmozprfs5a8q.png' %}" alt="">
+</div>
+
+
+
 
 {% endblock %}
