@@ -2,9 +2,11 @@
 
 {% load static %}
 
-{% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'static/RDNA.css' %}">
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'RDNA.css' %}">
 {% endblock %}
+
+{% load static %}
 
 {% block title %}AMD Radeon™ RX Graphics Series{% endblock %}
 
