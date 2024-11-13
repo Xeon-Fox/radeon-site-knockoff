@@ -1,11 +1,22 @@
 {% extends "home.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'cart.css' %}">
+{% endblock %}
 
 {% block content %}
-<h2>Создать новый заказ</h2>
-<form method="post">
-    {% csrf_token %}
-    <!-- {{ form.as_p }} -->
-    <button type="submit">Создать заказ</button>
-</form>
+
+<div id="cart-container">
+    <h1>My Cart</h1>
+    <form method="post">
+        {% csrf_token %}
+    
+        <button type="submit" onclick="BuyButton()" class="btn">Создать заказ</button>
+    </form>
+    
+</div>
 <a href="{% url 'cart:order_list' %}">Назад к списку заказов</a>
+
+<script src="{% static 'cart.js' %}"></script>
 {% endblock %}
