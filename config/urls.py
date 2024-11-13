@@ -26,8 +26,6 @@ urlpatterns = [
     path('users/', include('users.urls'), name='users'),
     path("", include("products.urls"), name="products"),
     path('cart/', include('cart.urls'), name='cart'),
-    path('orders/', include('orders.urls'), name='orders'),
-    path('store/', include('store.urls'), name='store'),
     path('rdna/', include('RDNA.urls'), name='rdna'),
     path('series/', include('series.urls'), name='series')
 

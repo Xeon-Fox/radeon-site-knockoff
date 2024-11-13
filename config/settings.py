@@ -36,8 +36,6 @@ INSTALLED_APPS = [
     "users",
     "gpu",
     "cart",
-    "store",
-    "orders",
     "RDNA",
     "series",
     'django.contrib.admin',

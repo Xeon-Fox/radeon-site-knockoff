@@ -96,7 +96,7 @@ function DisplayItems(){
       total += itemData.price * quantity;
       cartContent += `
         <tr class="product-line">
-          <td><img src="${itemData.image}" alt=""></td>
+          <td><img src="{$ static '${itemData.image}' %}" alt=""></td>
           <td><p>${itemData.name}</p></td>
           <td><p>${quantity}</p></td>
           <td><p>$${itemData.price * quantity}</p></td>
@@ -109,21 +109,24 @@ function DisplayItems(){
   if (cartContent) {
     cartContent = `
       <h1>My Cart</h1>
-      <table class="cart-table">
-        <tr>
-          <th>Image</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-        ${cartContent}
-        <tr>
-          <td colspan="2"><b>Total:</b></td>
-          <td>$${total}</td>
-        </tr>
-      </table>
-      <button onclick="BuyButton()" class="btn">Buy</button>
+      <form method="post">
+        {% csrf_token %}
+        <table class="cart-table">
+          <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+          ${cartContent}
+          <tr>
+            <td colspan="2"><b>Total:</b></td>
+            <td>$${total}</td>
+          </tr>
+        </table>
+        <button type="submit" onclick="BuyButton()" class="btn">Создать заказ</button>
+      </form>
     `
     document.getElementById('cart-container').innerHTML = cartContent;
   } 
