@@ -96,7 +96,7 @@ function DisplayItems(){
       total += itemData.price * quantity;
       cartContent += `
         <tr class="product-line">
-          <td><img src="{$ static '${itemData.image}' %}" alt=""></td>
+          <td><img src="{% static '${itemData.image}' %}" alt=""></td>
           <td><p>${itemData.name}</p></td>
           <td><p>${quantity}</p></td>
           <td><p>$${itemData.price * quantity}</p></td>
@@ -110,7 +110,6 @@ function DisplayItems(){
     cartContent = `
       <h1>My Cart</h1>
       <form method="post">
-        {% csrf_token %}
         <table class="cart-table">
           <tr>
             <th>Image</th>

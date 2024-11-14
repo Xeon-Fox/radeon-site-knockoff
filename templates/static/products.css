@@ -100,6 +100,20 @@ body{
     z-index: -1;
 }
 
+.product-bg2{
+    position: absolute;
+    top: 1400px;
+    width: 100vw;
+    z-index: -1;
+}
+
+.product-bg3{
+    position: absolute;
+    top: 2390px;
+    width: 100vw;
+    z-index: -1;
+}
+
 .product-name{
     font-size: 36px;
 }
