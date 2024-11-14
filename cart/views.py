@@ -3,6 +3,8 @@ from .models import Order, OrderItem
 from .forms import OrderForm, OrderItemForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.http import JsonResponse
+from django.views import View
 
 class OrderListView(LoginRequiredMixin, ListView):
     model = Order
@@ -29,3 +31,11 @@ class CreateOrderView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user 
         return super().form_valid(form)
+
+class GpuDataView(View):
+    def post(self, request):
+        cart_data = json.loads(request.body)
+
+        #и тут типо сохраняется
+
+        return JsonResponse({'message': 'Data received successfully!'})
