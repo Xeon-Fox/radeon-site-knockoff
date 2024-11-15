@@ -37,7 +37,11 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('users:login')
-    template_name = 'users/logged_out.html'
+    template_name = 'users/logout.html'
+
+    def get(self, request, *args, **kwargs):
+        # Render the template for a GET request
+        return self.render_to_response(self.get_context_data())
 
 class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/password_change.html"
