@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "cart",
     "RDNA",
     "series",
-    'debug_toolbar'
+    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
