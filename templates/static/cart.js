@@ -151,9 +151,17 @@ function sendDataToServer(cartData) {
 
 function BuyButton(){
   alert("Thank you for shopping with us")
-  sendDataToServer(getItems())
+  const cartData = getItems();
+  const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+  const dataToSend = {
+    cartData: cartData,
+    csrf_token: csrfToken
+  };
+
+  sendDataToServer(dataToSend);
   localStorage.clear();
-  DisplayItems()
+  DisplayItems();
 }
 
-DisplayItems()
+DisplayItems();

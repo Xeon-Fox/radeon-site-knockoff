@@ -10,15 +10,9 @@
 
 <div id="cart-container">
     <h1>My Cart</h1>
-<<<<<<< HEAD
-    <form method="post" action="{% url 'cart:order_create' %}">
-        {% csrf_token %}
-=======
-    <form method="post">
-    
->>>>>>> semyon
-        <button type="submit" onclick="BuyButton()" class="btn">Создать заказ</button>
-    </form>
+    <form method="post" action="cart:order_create">
+        {% csrf_token %}  <button type="submit" onclick="BuyButton()" class="btn">Создать заказ</button>
+      </form>
     
 </div>
 <a href="{% url 'cart:order_list' %}">Назад к списку заказов</a>

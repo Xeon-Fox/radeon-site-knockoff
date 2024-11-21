@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 class OrderListView(LoginRequiredMixin, ListView):
     model = Order
@@ -24,14 +26,15 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
 
 class CreateOrderView(LoginRequiredMixin, CreateView):
     model = Order
-    form_class = OrderForm  
+    form_class = OrderForm
+    
     template_name = 'order_form.html'
     success_url = reverse_lazy('cart:order_list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user 
         return super().form_valid(form)
-
+csrf_exempted_view = csrf_exempt(CreateOrderView.as_view())
 class GpuDataView(View):
     def post(self, request):
         cart_data = json.loads(request.body)
@@ -39,3 +42,4 @@ class GpuDataView(View):
         #и тут типо сохраняется
 
         return JsonResponse({'message': 'Data received successfully!'})
+
