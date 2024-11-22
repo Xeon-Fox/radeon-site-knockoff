@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     "config",
     'jazzmin',
     "users",
@@ -38,6 +39,11 @@ INSTALLED_APPS = [
     "cart",
     "RDNA",
     "series",
+
+
+
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +52,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
